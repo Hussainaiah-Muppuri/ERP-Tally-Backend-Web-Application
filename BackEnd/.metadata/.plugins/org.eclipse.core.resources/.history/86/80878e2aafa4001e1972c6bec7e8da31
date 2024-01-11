@@ -1,0 +1,14 @@
+package com.stock.repo;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.stock.entity.StockGroupEntity;
+
+public interface StockGroupRepository extends JpaRepository<StockGroupEntity, Long>{
+
+	
+	public List<StockGroupEntity> getAllEntities(Long userId, Long companyId);
+		
+}

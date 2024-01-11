@@ -1,0 +1,72 @@
+/* ReceiptVoucherList.css */
+
+.receipt-list-container {
+    margin: 20px;
+  }
+  
+  .receipt-list-container h4 {
+
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .add-receipt-btn {
+    background-color: #28a745;
+    color: #fff;
+    margin-left: 60%;
+    margin-bottom: 1%;
+  }
+  
+  .receipt-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .receipt-table th,
+  .receipt-table td {
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .action-buttons {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .form-rows button {
+    margin-right: 5px;
+  }
+  
+  .receipt-view-btn {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .btn-warning {
+    background-color: #ffc107;
+    color: #212529;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+ 
+  
+  .receipt-table tbody tr:hover {
+    background-color: #f8f9fa;
+  }
+  

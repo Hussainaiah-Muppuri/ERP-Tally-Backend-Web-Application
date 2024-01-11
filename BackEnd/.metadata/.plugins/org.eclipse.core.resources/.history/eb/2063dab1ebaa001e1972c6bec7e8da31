@@ -1,0 +1,83 @@
+package com.erp.rest;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.erp.entity.DebitEntity;
+import com.erp.service.DebitService;
+
+@RestController
+@CrossOrigin("*")
+@RequestMapping("/debitNote")
+public class DebitRestController {
+
+	@Autowired
+	private DebitService Services;
+
+	@PostMapping("/save")
+	public ResponseEntity<String> saveDebit(@RequestBody DebitEntity entity) {
+		DebitEntity savedDebit = Services.saveDebit(entity);
+		if (savedDebit != null) {
+			return new ResponseEntity<>("Debit note saved successfully", HttpStatus.CREATED);
+		} else {
+			return new ResponseEntity<>("Failed to save debit note", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@PostMapping("/saveAll")
+	public ResponseEntity<List<DebitEntity>> saveAllDebits(@RequestBody List<DebitEntity> debits) {
+		List<DebitEntity> savedDebits = Services.saveAllDebits(debits);
+		return new ResponseEntity<>(savedDebits, HttpStatus.CREATED);
+	}
+
+	@GetMapping("/get/{debitId}")
+	public ResponseEntity<DebitEntity> getByIdDebit(@PathVariable Long debitId) {
+		Optional<DebitEntity> entity = Services.getById(debitId);
+
+		return entity.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
+				.orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<String> deleteDebitById(@PathVariable Long id) {
+		String delete = Services.deleteDebitById(id);
+		return new ResponseEntity<>(delete, HttpStatus.OK);
+	}
+
+	@PutMapping("/update/{debitId}")
+	public ResponseEntity<DebitEntity> updateDebitDetails(@RequestBody DebitEntity entity, @PathVariable Long debitId) {
+		DebitEntity updatedDebit = Services.updateDebit(entity, debitId);
+
+		if (updatedDebit != null) {
+			return new ResponseEntity<>(updatedDebit, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@GetMapping("/getAll/{userId}/{companyId}")
+	public ResponseEntity<List<DebitEntity>> getAllByUserIdAndCompanyId(@PathVariable Long userId,
+			@PathVariable Long companyId) {
+		List<DebitEntity> debitEntities = Services.getAllByUserIdAndCompanyId(userId, companyId);
+
+		if (!debitEntities.isEmpty()) {
+			return new ResponseEntity<>(debitEntities, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+}

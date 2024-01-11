@@ -1,0 +1,34 @@
+package com.ledger.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+@Data
+@Entity
+@Table(name="ledger")
+public class LedgerEntity {
+    @Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long ledgerId;
+    private String ledgerName;
+    private String underGroup;
+    private Long mobileNo;
+    private String email;
+    private String address;
+    private String bankAccountHolderName;
+    private String bankAccountNo;
+    private String nameOfBank;
+    private String ifscCode;
+    private String gstNo;
+    private String panNo;
+    private String tanNo;
+    private Long aadharNo;
+    private String effectStockLedger;
+    private String currencyOfLedger;
+	
+    private Long userId;
+	private Long companyId;
+}

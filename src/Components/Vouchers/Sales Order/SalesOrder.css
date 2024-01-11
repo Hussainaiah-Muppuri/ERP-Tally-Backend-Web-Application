@@ -1,0 +1,208 @@
+.Sales-Order-Div .mainSale {
+  width: 90vw;
+  height: 75vh;
+  border: 2px solid black;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+  background-color: rgb(208, 215, 187);
+
+}
+.soform .Sales-Order-Div{
+  margin-top: 5vh;
+}
+
+.sov-select {
+  height: 5vh;
+  padding: 3px;
+  width: 100%;
+
+}
+
+.mainSale input {
+  border: 1px solid black;
+  background-color: rgb(208, 215, 187);
+}
+
+.head {
+  width: 100%;
+  height: 5vh;
+  background-color: #1c4b20;
+  color: #fff;
+  position: absolute;
+  top: 0%;
+
+
+}
+
+.head h3 {
+  margin-right: 80%;
+  margin-top: 0%;
+}
+
+.SalesInput {
+  position: absolute;
+  left: 2%;
+  top: 10%;
+  display: block;
+}
+
+.high {
+  background-color: rgb(151, 10, 10);
+  color: #fff;
+  width: 10vw;
+  border: none;
+  border-radius: 5px;
+
+}
+
+.total {
+  position: absolute;
+  bottom: 15%;
+  left: 80%;
+  font-weight: bolder;
+}
+
+.DateDiv {
+  position: absolute;
+  top: 10%;
+  left: 80%;
+  font-style: italic;
+  font-weight: bolder;
+
+}
+
+.tablesData {
+  position: absolute;
+  top: 25%;
+  left: 0%;
+  display: flex;
+  margin: 2rem;
+  width: 90%;
+  display: flex;
+  padding: 2rem;
+  text-align: left;
+
+
+
+}
+
+.tablesData table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 10px;
+  /* Adjust this value as needed for the desired space */
+}
+
+.tablesData th,
+.tablesData td {
+  padding: 10px;
+  /* Add padding for better readability */
+  text-align: center;
+
+}
+
+.mainSale .btn {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 10vw;
+  height: 4vh;
+  border-radius: 10px;
+  border: none;
+  background-color: #1c4b20;
+  color: #fff;
+}
+
+.Combo {
+  position: absolute;
+  left: 2%;
+  top: 27%;
+  display: inline;
+  font-weight: bolder;
+  justify-content: space-evenly;
+
+}
+
+/* .itemDiv{
+    position: absolute;
+    left: 0;
+    right: 90%;
+} */
+.OrderDiv {
+  position: absolute;
+  top: 18%;
+  left: 2%;
+  font-weight: bolder;
+
+}
+
+.separator1 {
+  height: 100px;
+  border-bottom: 3px solid #000;
+  margin-top: -60px;
+
+}
+
+.soform .separator2 {
+  height: 100px;
+  border-bottom: 3px solid #000;
+  margin-top: 80px;
+
+}
+
+.Desc {
+  position: absolute;
+  top: 80%;
+  left: 5%;
+  display: grid;
+  text-align: left;
+}
+
+.DescName {
+  text-decoration: underline;
+}
+
+.soform .descInput {
+  width: 30vw;
+  height: 10vh;
+  border: none;
+}
+
+textarea {
+  background-color: rgb(208, 215, 187);
+}
+
+.Combo label {
+  position: absolute;
+  left: 0;
+}
+
+.Combo select {
+
+  position: absolute;
+  left: 80%;
+  top: -17%;
+  width: 15vw;
+}
+
+.Combo {
+  margin-top: 3vh;
+}
+
+.cb {
+  position: relative;
+  left: 80%;
+  height: 3vh;
+  margin-top: 2vh;
+  border-color: transparent;
+}
+
+.CN {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 40%;
+}

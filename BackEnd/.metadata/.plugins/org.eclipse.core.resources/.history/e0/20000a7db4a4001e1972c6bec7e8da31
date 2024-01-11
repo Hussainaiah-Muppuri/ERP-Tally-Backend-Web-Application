@@ -1,0 +1,69 @@
+package com.stock.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.stock.entity.StockGroupEntity;
+import com.stock.repo.StockGroupRepository;
+
+@Service
+public class StockGroupServiceImpl implements StockGroupService {
+	@Autowired
+	private StockGroupRepository stockRepo;
+
+	@Override
+	public ResponseEntity<String> saveStock(StockGroupEntity stock) {
+		try {
+			stockRepo.save(stock);
+			return ResponseEntity.ok("Stock saved successfully");
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body("Error saving stock: " + e.getMessage());
+		}
+	}
+
+	@Override
+	public ResponseEntity<String> deleteByStockGroupId(Long stockGroupId) {
+		try {
+			stockRepo.deleteById(stockGroupId);
+			return ResponseEntity.ok("Stock deleted successfully");
+		} catch (EmptyResultDataAccessException e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Stock with ID " + stockGroupId + " not found");
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body("Error deleting stock: " + e.getMessage());
+		}
+	}
+
+	@Override
+	public ResponseEntity<String> update(Long stockGroupId, StockGroupEntity updateStock) {
+		try {
+			updateStock.setStockGroupId(stockGroupId);
+			stockRepo.save(updateStock);
+			return ResponseEntity.ok("Stock updated successfully");
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body("Error updating stock: " + e.getMessage());
+		}
+	}
+
+	@Override
+	public List<StockGroupEntity> saveAll(List<StockGroupEntity> stocks) {
+		return stockRepo.saveAll(stocks);
+	}
+
+	@Override
+	public Optional<StockGroupEntity> getByStockGroupId(Long stockGroupId) {
+		return stockRepo.findById(stockGroupId);
+	}
+
+	@Override
+	public List<StockGroupEntity> getByUserIdAndCompanyId(Long userId, Long companyId) {
+		return stockRepo.findByUserIdAndCompanyId(userId, companyId);
+	}
+
+}

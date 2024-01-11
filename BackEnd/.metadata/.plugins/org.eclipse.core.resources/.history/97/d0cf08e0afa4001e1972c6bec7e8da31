@@ -1,0 +1,47 @@
+package com.stock.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.stock.entity.StockGroupEntity;
+import com.stock.repo.StockGroupRepository;
+
+@Service
+public class StockGroupServiceImpl implements StockGroupService {
+	@Autowired
+	private StockGroupRepository stockRepo;
+
+	@Override
+	public ResponseEntity<String> saveStock(StockGroupEntity stock) {
+		stockRepo.save(stock);
+		return ResponseEntity.ok("saved");
+	}
+
+	@Override
+	public StockGroupEntity update(Long stockGroupId, StockGroupEntity updateStock) {
+		updateStock.setStockGroupId(stockGroupId);
+		return stockRepo.save(updateStock);
+	}
+
+	@Override
+	public List<StockGroupEntity> saveAll(List<StockGroupEntity> stocks) {
+		return stockRepo.saveAll(stocks);
+	}
+
+	@Override
+	public Optional<StockGroupEntity> getByStockGroupId(Long stockGroupId) {
+		return stockRepo.findById(stockGroupId);
+	}
+
+	@Override
+	public String deleteByStockGroupId(Long stockGroupId) {
+		stockRepo.deleteById(stockGroupId);
+		return "deleted";
+	}
+
+	
+}

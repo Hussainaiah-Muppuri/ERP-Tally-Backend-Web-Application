@@ -1,0 +1,57 @@
+package com.erp.service;
+
+import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.erp.entity.CompanyCreationEntity;
+import com.erp.entity.SalesOrderEntity;
+import com.erp.repository.SalesOrderRepo;
+
+@Service
+public class SalesOrderServiceImpl implements SalesOrderService {
+	@Autowired
+	private SalesOrderRepo salesRepo;
+
+	@Override
+	public List<SalesOrderEntity> saveAll(List<SalesOrderEntity> sales) {
+		return salesRepo.saveAll(sales);
+	}
+
+	@Override
+	public SalesOrderEntity getById(Long salesOrderNo) {
+		Optional<SalesOrderEntity> findById = salesRepo.findBySalesOrderNo(salesOrderNo);
+		if (findById.isPresent()) {
+			return findById.get();
+		}
+
+		return null;
+	}
+	@Override
+	public String deleteBySalesOrder(Long salesOrderNo) {
+		if (salesRepo.existsBySalesOrderNo(salesOrderNo)) {
+			salesRepo.deleteBySalesOrderNo(salesOrderNo);
+			return "delete success";
+		}
+		return "no records found";
+	}
+
+	@Override
+	public String save(SalesOrderEntity sales) {
+		salesRepo.save(sales);
+		return "saved";
+
+	}
+
+	@Override
+	public String update(Long salesOrderNo) {
+		salesRepo.save(salesOrderNo);
+		return "updated";
+	}
+
+	@Override
+	public List<SalesOrderEntity> getAllSalesOrders(Integer snoId, CompanyCreationEntity company) {
+		return salesRepo.findAll();
+	}
+}

@@ -1,0 +1,64 @@
+package com.anarghya.erp.controller;
+
+import com.anarghya.erp.entity.UnitEntity;
+import com.anarghya.erp.service.UnitService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@CrossOrigin("*")
+@RestController
+@RequestMapping("/api/units")
+public class UnitController {
+
+	@Autowired
+	private UnitService unitService;
+
+	@GetMapping
+	public List<UnitEntity> getAllUnits() {
+		return unitService.getAllUnits();
+	}
+
+	@GetMapping("/{unitId}")
+	public ResponseEntity<UnitEntity> getUnitById(@PathVariable Long unitId) {
+		Optional<UnitEntity> unit = unitService.getUnitById(unitId);
+		return unit.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
+				.orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+
+	@PostMapping
+	public ResponseEntity<UnitEntity> saveUnit(@RequestBody UnitEntity unit) {
+		UnitEntity savedUnit = unitService.saveUnit(unit);
+		return new ResponseEntity<>(savedUnit, HttpStatus.CREATED);
+	}
+
+	@PutMapping("/{unitId}")
+	public ResponseEntity<UnitEntity> updateUnit(@PathVariable Long unitId, @RequestBody UnitEntity updatedUnit) {
+		UnitEntity result = unitService.updateUnit(unitId, updatedUnit);
+		return result != null ? new ResponseEntity<>(result, HttpStatus.OK)
+				: new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+
+	@DeleteMapping("/{unitId}")
+	public ResponseEntity<Void> deleteUnit(@PathVariable Long unitId) {
+		unitService.deleteUnit(unitId);
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+
+	@GetMapping("/{userId}/{companyId}")
+	public ResponseEntity<List<UnitEntity>> getAllUnitsByUserIdAndCompanyId(@PathVariable Long userId,
+			@PathVariable Long companyId) {
+		List<UnitEntity> units = unitService.getAllUnitsByUserIdAndCompanyId(userId, companyId);
+		return new ResponseEntity<>(units, HttpStatus.OK);
+	}
+
+//	@PostMapping("/saveAll")
+//	public ResponseEntity<List<UnitEntity>> saveAllUnits(@RequestBody List<UnitEntity> units) {
+//		List<UnitEntity> savedUnits = unitService.saveAllUnits(units);
+//		return new ResponseEntity<>(savedUnits, HttpStatus.CREATED);
+//	}
+}

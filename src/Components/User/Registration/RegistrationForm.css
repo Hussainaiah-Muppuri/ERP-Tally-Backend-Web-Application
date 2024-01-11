@@ -1,0 +1,72 @@
+.home-button {
+    padding-right: 5%;
+    font-weight: bolder;
+}
+
+.add-user h3 {
+    text-align: center;
+    margin-bottom: 4vh;
+}
+
+.form-row label {
+    margin-bottom: 1vh;
+}
+
+.form-row {
+    width: 100%;
+    display: flex;
+    margin-bottom: 1vh;
+}
+
+.form-in input {
+    width: 35vw;
+}
+
+.form-in {
+    margin-left: 10vw;
+}
+
+.form-add {
+    margin-left: 10vw;
+    margin-bottom: 1vh;
+}
+
+.form-add input {
+    width: 80.5vw;
+}
+
+.form-pass {
+    margin-left: 10vw;
+}
+
+.form-pass input {
+    width: 34vw;
+}
+
+.add-user input {
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    transition: border-bottom 0.3s ease;
+    font-weight: bolder;
+
+}
+
+.reg-but {
+    margin-top: 5vh;
+    background-color: rgb(114, 111, 111);
+    border: none;
+    color: rgb(248, 243, 243);
+    padding: 5px;
+    width: 20%;
+    margin-left: 40%;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 1s;
+}
+
+.reg-but:hover {
+    background-color: rgb(7, 7, 7);
+    font-weight: bold;
+    transition: background-color 1s;
+}

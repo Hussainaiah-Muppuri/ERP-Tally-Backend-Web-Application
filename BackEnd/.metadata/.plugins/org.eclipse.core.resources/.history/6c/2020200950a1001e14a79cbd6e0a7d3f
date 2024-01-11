@@ -1,0 +1,14 @@
+package com.ledger.repo;
+
+import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.ledger.entity.LedgerEntity;
+
+public interface LedgerRepository extends JpaRepository<LedgerEntity,Long>{
+
+	public Optional<LedgerEntity> findById(Long ledgerId);
+
+	public String deleteByLedgerId(Long ledgerId);
+	
+}

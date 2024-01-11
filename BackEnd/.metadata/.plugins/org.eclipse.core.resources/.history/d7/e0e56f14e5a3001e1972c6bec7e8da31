@@ -1,0 +1,44 @@
+package com.erp.entity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name="SALES_ORDER")
+public class SalesOrderEntity {
+@Id
+@GeneratedValue(strategy = GenerationType.SEQUENCE)
+private Long salesOrderNo;
+private String orderNo;
+private String date;
+private String day;
+private String partyName;
+private Double currentBalance;
+private String itemName;
+private Integer quantity;
+private String unit;
+private Double rate;
+private Double discount;
+private Double amount;
+private Double totalAmount;
+private String description;
+//@ManyToOne
+//@JoinColumn(name="companyId")
+//@JsonInclude
+//private List<CompanyCreationEntity> company;
+private Long userId;
+private Long companyId;
+//@ManyToOne
+//@JoinColumn(name="snoId")
+//@JsonInclude
+//private List<SignUpEntity> snoId;
+}

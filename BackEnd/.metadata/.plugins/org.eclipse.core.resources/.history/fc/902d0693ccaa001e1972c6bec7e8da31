@@ -1,0 +1,74 @@
+package com.erp.serviceImpl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.erp.binding.PurchaseResponse;
+import com.erp.entity.PurchaseEntity;
+import com.erp.repo.PurchaseRepo;
+import com.erp.service.PurchaseService;
+
+
+@Service
+public class PurchaseServiceImpl implements PurchaseService {
+
+	@Autowired
+	private PurchaseRepo purchaseRepo;
+
+	@Override
+	public Boolean saveOrder(PurchaseEntity entity) {
+
+		purchaseRepo.save(entity);
+
+		return true;
+	}
+
+	@Override
+	public List<PurchaseEntity> saveAllOrder(List<PurchaseEntity> entities) {
+		return purchaseRepo.saveAll(entities);
+	}
+
+	@Override
+	public PurchaseResponse getById(Integer id) {
+		PurchaseResponse response = new PurchaseResponse();
+		Optional<PurchaseEntity> findById = purchaseRepo.findById(id);
+		if (findById.isPresent()) {
+			PurchaseEntity entity = findById.get();
+			BeanUtils.copyProperties(entity, response);
+
+			Double productPrice = entity.getAmount();
+			Double discount = entity.getDiscount();
+			Long quantity = entity.getQuantity();
+			Double discountPrice = ((productPrice * discount) / 100) * quantity;
+			response.setDiscount(discountPrice);
+			response.setAmount((productPrice * quantity) - discountPrice);
+			return response;
+		}
+		return null;
+	}
+
+	@Override
+	public String deleteOrderById(Integer id) {
+		purchaseRepo.deleteById(id);
+		return "deleted order";
+	}
+
+	@Override
+	public PurchaseEntity updateOrderDetails(PurchaseEntity orderEntities, Integer purchaseOrderId) {
+		PurchaseEntity entity = purchaseRepo.findById(orderEntities.getPurchaseId()).get();
+		BeanUtils.copyProperties(orderEntities, entity);
+		PurchaseEntity save = purchaseRepo.save(entity);
+		return save;
+	}
+
+
+	@Override
+	public List<PurchaseEntity> getAllByUserIdCompanyId(Long userId, Long companyId) {
+		return purchaseRepo.findByUserIdAndCompanyId(userId, companyId);
+	}
+
+}

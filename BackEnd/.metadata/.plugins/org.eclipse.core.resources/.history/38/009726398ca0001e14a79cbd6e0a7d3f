@@ -1,0 +1,9 @@
+package com.anarghya.erp.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.anarghya.erp.entity.UnitEntity;
+
+public interface UnitRepository extends JpaRepository<UnitEntity, Long> {
+
+}

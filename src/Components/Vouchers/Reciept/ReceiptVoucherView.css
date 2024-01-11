@@ -1,0 +1,43 @@
+/* ReceiptVoucherView.css */
+
+.view-receipt-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 4vh;
+  }
+  
+  .view-receipt-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .view-receipt-card {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .receipt-title {
+    margin-bottom: 20px;
+  }
+  
+  .receipt-info {
+    margin-bottom: 10px;
+  }
+  
+  .view-receipt-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .back-button {
+    text-decoration: none;
+  }
+  
+  /* Add more styles as needed */
+  

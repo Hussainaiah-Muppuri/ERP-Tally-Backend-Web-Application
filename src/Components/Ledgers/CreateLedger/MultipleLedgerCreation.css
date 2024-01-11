@@ -1,0 +1,22 @@
+.custom-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.custom-table th,
+.custom-table td {
+    border: none;
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Add line between rows */
+}
+
+.custom-table th {
+    background-color: #f2f2f2;
+}
+
+.date-input {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 10px; /* Add space between date and table */
+}

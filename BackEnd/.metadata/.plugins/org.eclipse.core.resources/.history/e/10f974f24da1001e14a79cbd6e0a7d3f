@@ -1,0 +1,55 @@
+package com.ledger.controller;
+import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ledger.entity.LedgerEntity;
+import com.ledger.service.LedgerService;
+@RestController
+public class LedgerController {
+    @Autowired
+	private LedgerService ledgerService;
+	
+    @PostMapping("/save")
+    public ResponseEntity<ResponseEntity<String>> saveLedger(@RequestBody LedgerEntity ledger){
+        ResponseEntity<String> result = ledgerService.saveLedger(ledger);
+        return ResponseEntity.ok(result);
+    }
+    
+    @PutMapping("/update/{ledgerId}")
+    public ResponseEntity<LedgerEntity> update(@PathVariable Long ledgerId,
+		@RequestBody LedgerEntity updateLedger) {
+    	LedgerEntity result = ledgerService.update(ledgerId, updateLedger);
+        return ResponseEntity.ok(result);
+    }
+    @PostMapping("/saveall")
+    public ResponseEntity<List<LedgerEntity>> saveAll(@RequestBody List<LedgerEntity> ledgers) {
+        List<LedgerEntity> results = ledgerService.saveAll(ledgers);
+        return ResponseEntity.ok(results);
+    }
+    @GetMapping("/get/{ledgerId}")
+    public ResponseEntity<LedgerEntity> getLedgerById(@PathVariable Long ledgerId) {
+        Optional<LedgerEntity> result = ledgerService.getLedgerById(ledgerId);
+        return result.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }   
+    
+    @GetMapping("/getall/{userId}/{companyId}")
+    public ResponseEntity<List<LedgerEntity>> getAllEntities(Long userId, Long companyId) {
+    	List<LedgerEntity> getall = ledgerService.getAllEntities(userId, companyId);
+    	return new ResponseEntity<>(getall, HttpStatus.OK);
+    }
+    @DeleteMapping("/delete/{ledgerId}")
+    public ResponseEntity<String> deleteByLedgerId(@PathVariable Long ledgerId) {
+    	String result= ledgerService.deleteByLedgerId(ledgerId);
+        return ResponseEntity.ok(result);
+    }
+}

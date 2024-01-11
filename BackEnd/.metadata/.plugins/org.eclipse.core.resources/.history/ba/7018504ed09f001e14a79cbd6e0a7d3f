@@ -1,0 +1,19 @@
+package com.anarghya.erp.service;
+
+import java.util.List;
+
+import com.anarghya.erp.entity.CompanyForm;
+
+public interface CompanyFormService {
+
+    List<CompanyForm> getAllCompanies();
+
+    CompanyForm getCompanyById(Long companyId);
+
+    String createCompany(CompanyForm companyForm);
+
+    String deleteCompany(Long companyId);
+
+	String updateCompany(Long companyId, CompanyForm companyForm);
+
+}

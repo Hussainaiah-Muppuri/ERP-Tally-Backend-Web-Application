@@ -1,0 +1,8 @@
+.profile-input input{
+border: none;
+border-bottom: 1px solid blue;
+}
+
+.profile-email{
+    width: 50%;
+}

@@ -1,0 +1,11 @@
+package com.anarghya.erp.entity;
+
+public class UnitEntity {
+
+	private Long unitId;
+	private String unitSymbol;
+	private String formalName;
+	private Long userId;
+	private Long companyId;
+
+}

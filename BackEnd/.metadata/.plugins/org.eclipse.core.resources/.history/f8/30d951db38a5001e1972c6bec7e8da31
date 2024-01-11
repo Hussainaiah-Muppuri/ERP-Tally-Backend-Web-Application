@@ -1,0 +1,20 @@
+package com.erp.service;
+import java.util.List;
+
+import com.erp.entity.CompanyCreationEntity;
+import com.erp.entity.SalesOrderEntity;
+public interface SalesOrderService {
+	
+	public String save(SalesOrderEntity sales);
+	
+	public String update(Long salesOrderNo);
+	
+	public List<SalesOrderEntity> saveAll(List<SalesOrderEntity> sales);
+
+	public SalesOrderEntity getById(Long salesOrderNo);
+
+	public List<SalesOrderEntity> getAllSalesOrders(Long snoId, Long company);
+
+	public String deleteBySalesOrder(Long salesOrderNo);
+    	
+}

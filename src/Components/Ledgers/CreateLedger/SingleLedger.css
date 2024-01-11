@@ -1,0 +1,26 @@
+.led-select{
+    width: 70%;
+    padding: .9%;
+    border: none;
+    margin-left: 100%;
+    border-bottom: 1px solid rgb(66, 66, 125);
+}
+
+.ledger-cre input{
+    width: 70%;
+    border: none;
+    border-bottom: 1px solid rgb(66, 66, 125);
+}
+.led-rows{
+    display: flex;
+    justify-content: space-between;
+}
+.led-date{
+    width: 70%;
+    padding: .9%;
+    border-bottom: 1px solid rgb(66, 66, 125);
+}
+
+.ledger-cre .leg-btn{
+    width: 70%;
+}

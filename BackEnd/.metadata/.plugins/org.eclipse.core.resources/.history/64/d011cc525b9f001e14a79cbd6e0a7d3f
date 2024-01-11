@@ -1,0 +1,59 @@
+package com.anarghya.erp.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.anarghya.erp.entity.CompanyForm;
+import com.anarghya.erp.repository.CompanyFormRepository;
+import com.anarghya.erp.service.CompanyFormService;
+
+@Service
+public class CompanyFormServiceImpl implements CompanyFormService {
+
+    @Autowired
+    private CompanyFormRepository companyFormRepository;
+
+    @Override
+    public List<CompanyForm> getAllCompanies() {
+        return companyFormRepository.findAll();
+    }
+
+    @Override
+    public CompanyForm getCompanyById(Long companyId) {
+        Optional<CompanyForm> companyOptional = companyFormRepository.findByCompanyId(companyId);
+        return companyOptional.orElse(null);
+    }
+
+    @Override
+    public String createCompany(CompanyForm companyForm) {
+        companyFormRepository.save(companyForm);
+        return "Company created successfully!";
+    }
+
+    @Override
+    public String updateCompany(Long companyId, CompanyForm companyForm) {
+        Optional<CompanyForm> existingCompanyOptional = companyFormRepository.findByCompanyId(companyId);
+        if (existingCompanyOptional.isPresent()) {
+           
+
+            companyFormRepository.save(companyForm);
+            return "Company updated successfully!";
+        } else {
+            return "Company not found!";
+        }
+    }
+
+
+    @Override
+    public String deleteCompany(Long companyId) {
+        if (companyFormRepository.existsById(companyId)) {
+            companyFormRepository.deleteById(companyId);
+            return "Company deleted successfully!";
+        } else {
+            return "Company not found!";
+        }
+    }
+}

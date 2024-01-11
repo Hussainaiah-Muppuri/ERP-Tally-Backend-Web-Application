@@ -1,0 +1,13 @@
+package com.anarghya.erp.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.anarghya.erp.entity.CompanyForm;
+
+public interface CompanyFormRepository extends JpaRepository<CompanyForm, Long> {
+
+	Optional<CompanyForm> findByCompanyId(Long companyId);
+
+}

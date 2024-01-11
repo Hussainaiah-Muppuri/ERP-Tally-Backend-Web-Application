@@ -1,0 +1,22 @@
+package com.stockitem.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
+
+import com.stockitem.entity.StockItemEntity;
+
+public interface StockItemService {
+	ResponseEntity<String> save(StockItemEntity item);
+
+	ResponseEntity<StockItemEntity> update(Long stockItemId, StockItemEntity updateItem);
+
+	List<StockItemEntity> saveAll(List<StockItemEntity> items);
+
+	Optional<StockItemEntity> getById(Long stockItemId);
+
+	String deleteById(Long stockItemId);
+
+	List<StockItemEntity> getByUserIdAndCompanyId(Long userId, Long companyId);
+}

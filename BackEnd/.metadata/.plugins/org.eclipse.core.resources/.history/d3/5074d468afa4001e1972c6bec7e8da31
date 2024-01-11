@@ -1,0 +1,21 @@
+package com.stock.service;
+import java.util.List;
+import java.util.Optional;
+import org.springframework.http.ResponseEntity;
+
+import com.stock.entity.StockGroupEntity;
+public interface StockGroupService {
+
+	 public  ResponseEntity<String> saveStock(StockGroupEntity stock);
+    
+	 public  StockGroupEntity update(Long stockGroupId, StockGroupEntity updateStock);
+
+	 public  List<StockGroupEntity> saveAll(List<StockGroupEntity> stocks);
+
+	 public  Optional<StockGroupEntity> getByStockGroupId(Long stockGroupId);
+
+	 public  String deleteByStockGroupId(Long stockGroupId);
+
+	 public  List<StockGroupEntity> getAllEntities(Long userId, Long companyId);
+	
+}

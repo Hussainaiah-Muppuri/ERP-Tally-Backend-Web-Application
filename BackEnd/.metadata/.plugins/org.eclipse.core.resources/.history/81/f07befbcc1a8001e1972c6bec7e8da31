@@ -1,0 +1,24 @@
+package com.vochure.service;
+import java.util.List;
+import java.util.Optional;
+import org.springframework.http.ResponseEntity;
+
+import com.vochure.entity.VochureEntity;
+public interface VochureService {
+	 
+	 public  ResponseEntity<String> saveVochure(VochureEntity vochure);
+	    
+	 public  VochureEntity update(Long saleNo, VochureEntity updateVochure);
+
+	 public  List<VochureEntity> saveAll(List<VochureEntity> vochures);
+
+	 public  Optional<VochureEntity> getVochureById(Long saleNo);
+
+	 public  String deleteBySaleNo(Long saleNo);
+
+	 public  List<VochureEntity> getAllVochures(Long userId, Long companyId);
+
+
+	 //Optional<VochureEntity> getByUserIdAndCompanyId(Long userId, Long companyId);
+
+}

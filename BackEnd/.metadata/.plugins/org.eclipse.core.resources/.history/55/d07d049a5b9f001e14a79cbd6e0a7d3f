@@ -1,0 +1,39 @@
+package com.anarghya.erp.entity;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "company")
+public class CompanyForm {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long companyId;
+	private String companyName;
+	private String address;
+	private String Country;
+	private String state;
+	private Integer pincode;
+	private Long mobileNo;
+	private String email;
+	private String currencySymbol;
+	private String maintain;
+	private LocalDate financialYearFrom;
+	private LocalDate booksBeginningFrom;
+	private String Password;
+	private String useSecurityControl;
+
+	private String baseCurrencySymbol;
+	private String formalName;
+	private Integer numberOfDecimalPlaces;
+	private String isSymbolSuffixedToAmounts;
+	private Integer userId;
+
+}

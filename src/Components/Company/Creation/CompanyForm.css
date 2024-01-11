@@ -1,0 +1,106 @@
+.com-submit {
+    margin-bottom: 10vh;
+}
+
+.com-reg h3 {
+    text-align: center;
+}
+
+.com-form {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.com-field {
+    margin-right: 10%;
+}
+
+.com-field input[type="text"],
+.com-field input[type="email"],
+.com-field input[type="tel"],
+.com-field input[type="number"],
+.com-field select,
+.com-field input[type="date"] {
+    width: 150%;
+}
+
+
+
+.com-main {
+    margin-right: 8.5%;
+}
+
+.com-pass input {
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    transition: border-bottom 0.3s ease;
+    font-weight: bolder;
+}
+
+.com-main input {
+    width: 137%;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    transition: border-bottom 0.3s ease;
+    font-weight: bolder;
+}
+
+.com-base input[type="text"] {
+    width: 150%;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    transition: border-bottom 0.3s ease;
+    font-weight: bolder;
+}
+
+.com-base {
+    margin-right: 10%;
+    margin-left: 15%;
+}
+
+.com-base1 {
+    margin-left: 15%;
+}
+
+.com-base1 .com-field {
+    width: 100%;
+}
+
+.com-base1 .com-field select {
+    padding: 4px;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    transition: border-bottom 0.3s ease;
+    font-weight: bolder;
+}
+
+.com-field input {
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    transition: border-bottom 0.3s ease;
+    font-weight: bolder;
+}
+
+.com-submit {
+    margin-top: 2vh;
+    background-color: rgb(114, 111, 111);
+    border: none;
+    color: rgb(248, 243, 243);
+    padding: 5px;
+    width: 20%;
+    margin-left: 40%;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 1s;
+}
+
+.com-submit:hover {
+    background-color: rgb(7, 7, 7);
+    font-weight: bold;
+    transition: background-color 1s;
+}

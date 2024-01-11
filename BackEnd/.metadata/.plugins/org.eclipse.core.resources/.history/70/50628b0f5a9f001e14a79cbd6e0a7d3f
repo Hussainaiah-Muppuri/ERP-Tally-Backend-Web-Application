@@ -1,0 +1,5 @@
+package com.anarghya.erp.entity;
+
+public class CompanyForm {
+
+}

@@ -1,0 +1,49 @@
+.item-form-stock {
+    margin-left: 10%;
+    width: 80%;
+}
+
+.item-form-stock label {
+    font-weight: bolder;
+}
+
+.modal-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stock-item-input-1 {
+    width: 95%;
+    margin-bottom: 3vh;
+    margin-top: 2vh;
+    height: 5vh;
+    padding: 3px;
+    border: none;
+    border-bottom: 1px solid rgb(67, 67, 132);
+}
+
+.stock-item-input-2 {
+    width: 90%;
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    height: 5vh;
+    padding: 3px;
+    border: none;
+    border-bottom: 1px solid rgb(67, 67, 132);
+}
+
+.item-form-stock select {
+    margin-left: 100%;
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    width: 90%;
+    height: 5vh;
+    padding: 3px;
+    border: none;
+    border-bottom: 1px solid rgb(67, 67, 132);
+}
+
+.stock-item-b {
+    width: 20%;
+    margin-left: 40%;
+}

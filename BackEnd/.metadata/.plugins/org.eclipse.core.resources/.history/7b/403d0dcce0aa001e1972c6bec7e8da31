@@ -1,0 +1,17 @@
+package com.erp.service;
+
+import java.util.Optional;
+
+import com.erp.entity.DebitEntity;
+
+public interface DebitService {
+
+	public Boolean saveDebit(DebitEntity entity);
+
+	public Optional<DebitEntity> getById(Long id);
+
+	public String deleteDebitById(Long id);
+
+	public DebitEntity updateDebit(DebitEntity entity, Long debitId);
+
+}

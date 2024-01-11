@@ -1,0 +1,19 @@
+.group-tagss{
+  border: none;
+  border-bottom: 1px solid #ced4da; 
+  border-radius: 0; 
+  box-shadow: none; 
+  border-color: rgb(46, 82, 145);
+}
+
+.group-tagss-select{
+  border: none;
+  height: 6vh;
+  margin-top: 1%;
+  margin-left: 100%;
+  border-bottom: 1px solid #ced4da; 
+  border-radius: 0; 
+  box-shadow: none; 
+  padding: 3px;
+  border-color: rgb(46, 82, 145);
+}

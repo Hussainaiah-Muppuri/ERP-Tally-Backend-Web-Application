@@ -1,0 +1,48 @@
+package com.anarghya.erp.service.implementaion;
+
+import com.anarghya.erp.entity.UnitEntity;
+import com.anarghya.erp.repository.UnitRepository;
+import com.anarghya.erp.service.UnitService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class UnitServiceImpl implements UnitService {
+
+	@Autowired
+	private UnitRepository unitRepository;
+
+	@Override
+	public List<UnitEntity> getAllUnits() {
+		return unitRepository.findAll();
+	}
+
+	@Override
+	public Optional<UnitEntity> getUnitById(Long unitId) {
+		return unitRepository.findById(unitId);
+	}
+
+	@Override
+	public UnitEntity saveUnit(UnitEntity unit) {
+		return unitRepository.save(unit);
+	}
+
+	@Override
+	public UnitEntity updateUnit(Long unitId, UnitEntity updatedUnit) {
+		Optional<UnitEntity> existingUnitOptional = unitRepository.findById(unitId);
+
+		if (existingUnitOptional.isPresent()) {
+			return unitRepository.save(updatedUnit);
+		} else {
+			return null; // or throw an exception, or return a specific response
+		}
+	}
+
+	@Override
+	public void deleteUnit(Long unitId) {
+		unitRepository.deleteById(unitId);
+	}
+}

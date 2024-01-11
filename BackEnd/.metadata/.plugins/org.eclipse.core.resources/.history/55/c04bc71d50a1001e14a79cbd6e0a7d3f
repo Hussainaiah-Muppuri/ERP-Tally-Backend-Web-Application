@@ -1,0 +1,49 @@
+package com.ledger.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.ledger.entity.LedgerEntity;
+import com.ledger.repo.LedgerRepository;
+@Service
+public class LedgerServiceImpl implements LedgerService {
+    @Autowired
+	private LedgerRepository ledgerRepo;
+	@Override
+	public ResponseEntity<String> saveLedger(LedgerEntity ledger) {
+		ledgerRepo.save(ledger);
+		return ResponseEntity.ok("saved");
+	}
+
+	@Override
+	public LedgerEntity update(Long ledgerId, LedgerEntity updateLedger) {
+		updateLedger.setLedgerId(ledgerId);
+		return ledgerRepo.save(updateLedger);
+	
+	}
+
+	@Override
+	public List<LedgerEntity> saveAll(List<LedgerEntity> ledgers) {
+		return ledgerRepo.saveAll(ledgers);
+	}
+
+	@Override
+	public Optional<LedgerEntity> getLedgerById(Long ledgerId) {
+		return ledgerRepo.findById(ledgerId);
+	}
+
+	@Override
+	public String deleteByLedgerId(Long ledgerId) {
+		ledgerRepo.deleteById(ledgerId);
+		return "deleted";
+	}
+
+	@Override
+	public List<LedgerEntity> getAllEntities(Long userId, Long companyId) {
+		return ledgerRepo.findAll();
+	}
+}

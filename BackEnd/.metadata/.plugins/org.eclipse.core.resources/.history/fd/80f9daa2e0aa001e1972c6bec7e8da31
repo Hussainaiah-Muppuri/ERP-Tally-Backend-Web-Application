@@ -1,0 +1,46 @@
+package com.erp.serviceImpl;
+
+import java.util.Optional;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+
+import com.erp.entity.DebitEntity;
+import com.erp.repository.DebitRepo;
+import com.erp.service.DebitService;
+
+@Service
+public class DebitServiceImpl implements DebitService {
+
+	private DebitRepo repo;
+
+	@Override
+	public Boolean saveDebit(DebitEntity entity) {
+		repo.save(entity);
+		return true;
+	}
+
+	@Override
+	public Optional<DebitEntity> getById(Long debitId) {
+		return repo.findById(debitId);
+	}
+
+	@Override
+	public String deleteDebitById(Long debitId) {
+		repo.deleteById(debitId);
+		return "delete successfully";
+	}
+
+	@Override
+	public DebitEntity updateDebit(DebitEntity entity, Integer debitId) {
+		Optional<DebitEntity> existingDebit = repo.findById(debitId);
+
+		if (existingDebit.isPresent()) {
+			entity.setDebitId(debitId);
+			return repo.save(entity);
+		} else {
+			return null;
+		}
+	}
+
+}

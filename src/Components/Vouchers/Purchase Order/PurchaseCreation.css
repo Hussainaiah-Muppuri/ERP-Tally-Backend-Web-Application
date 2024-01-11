@@ -1,0 +1,192 @@
+.front {
+  width: 85vw;
+  background: #f0f5be;
+  height: 70vh;
+  border: 2px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+margin-top: 4vh;
+}
+
+.front input {
+  border: none;
+}
+
+.top {
+  width: 100%;
+  height: 5vh;
+  background-color: #1c4b20;
+  color: #fff;
+  position: absolute;
+  top: 0%;
+
+
+}
+
+.top h3 {
+  margin-right: 80%;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.buyInput {
+  position: absolute;
+  left: 2%;
+  top: 10%;
+  display: block;
+}
+
+.incre {
+  background-color: rgb(151, 10, 10);
+  color: #fff;
+  width: 10vw;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.total-1 {
+  position: absolute;
+  bottom: 15%;
+  left: 80%;
+}
+
+.desc-1 {
+  position: absolute;
+  top: 70%;
+  left: 5%;
+}
+
+.desc-1 label {
+  display: flex;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.bottom {
+  flex-direction: column;
+}
+
+.date-div {
+  position: absolute;
+  top: 10%;
+  left: 80%;
+  font-style: italic;
+  font-weight: bolder;
+}
+
+.date-div p {
+  margin-left: 40px;
+}
+
+.tableInf {
+  position: absolute;
+  top: 15%;
+  left: 0%;
+  display: flex;
+  margin: 2rem;
+  width: 90%;
+  display: flex;
+  padding: 2rem;
+  text-align: left;
+
+
+}
+
+.tableInf table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+
+.tableInf th,
+.tableInf td {
+  padding: 10px;
+  text-align: center;
+
+}
+
+.front .click {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 10vw;
+  height: 4vh;
+  border-radius: 10px;
+  border: none;
+  background-color: #1c4b20;
+  color: #fff;
+}
+
+.combin {
+  position: absolute;
+  left: 2%;
+  top: 20%;
+  display: inline;
+  font-weight: bolder;
+}
+
+.combin select {
+  width: 60%;
+  height: 5vh;
+  left: 4%;
+  padding: 3px; 
+  border-radius: 5px;
+}
+.cb-po{
+  font-size: small;
+  
+}
+.cb-po input{
+  background-color: transparent;
+}
+
+.order-div {
+  position: absolute;
+  top: 10%;
+  left: 15%;
+}
+
+.divide-1 {
+  height: 100px;
+  border-bottom: 3px solid #000;
+  margin-top: -60px;
+
+}
+
+.divide-2 {
+  height: 100px;
+  border-bottom: 3px solid #000;
+  /* margin-top: 120px; */
+
+}
+
+input {
+  text-align: center;
+  margin-left: 0px;
+}
+
+.desc-1 textarea {
+  background-color: transparent;
+  border: none;
+}
+
+.top h2 {
+  margin-left: 30rem;
+}
+.com-name{
+  margin-left: 20%;
+  text-align: center;
+  margin-top: 0%;
+}
+.com-row{
+  display: flex;
+}
+
+.item-select-tag{
+  width: 320%;
+  height: 5vh;
+  padding: 3px;
+}

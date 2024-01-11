@@ -1,0 +1,39 @@
+/* PaymentVoucherView.css */
+
+.view-payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4vh;
+    height: 100vh; /* Adjust as needed */
+  }
+  
+  .view-payment-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .view-payment-card {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .payment-title {
+    margin-bottom: 20px;
+  }
+  
+  .payment-info {
+    margin-bottom: 10px;
+  }
+  
+  .view-payment-button-container {
+    margin-top: 20px;
+  }
+  
+  .back-button {
+    text-decoration: none;
+  }
+  

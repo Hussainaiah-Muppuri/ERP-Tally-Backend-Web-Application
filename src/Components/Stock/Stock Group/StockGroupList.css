@@ -1,0 +1,47 @@
+.stock-group-but {
+    width: 100%;
+}
+
+.single-stock {
+    width: 70%;
+    border: none;
+    border-bottom: 1px solid rgb(67, 67, 123);
+    margin-bottom: 5vh;
+    padding: 5px;
+}
+
+.single-stock-add form {
+    margin-top: 5vh;
+
+}
+
+.sga {
+    margin-left: 25%;
+}
+
+.single-stock-add button {
+    width: 20%;
+    margin-left: 40%;
+}
+
+.sgmadd {
+    margin-top: 5vh;
+    margin-left: 25%;
+}
+
+.sgmadd label {
+    font-weight: bolder;
+    margin-bottom: 2vh;
+}
+
+.sgmadd input {
+    width: 70%;
+    border: none;
+    padding: 5px;
+    margin-bottom: 3vh;
+    border-bottom: 1px solid rgb(48, 48, 111);
+}
+.sgmadd-btn{
+    width: 20%;
+    margin-left: 40%;
+}

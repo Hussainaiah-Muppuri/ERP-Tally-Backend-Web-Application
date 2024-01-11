@@ -1,0 +1,82 @@
+package com.erp.rest;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.erp.binding.PurchaseResponse;
+import com.erp.entity.PurchaseEntity;
+import com.erp.service.PurchaseService;
+
+@RestController
+@CrossOrigin("*")
+public class PurchaseController {
+
+	@Autowired
+	private PurchaseService orderService;
+
+	@PostMapping("/saveorder")
+	public ResponseEntity<String> saveOrder(@RequestBody PurchaseEntity entity) {
+		Boolean saveOrder = orderService.saveOrder(entity);
+		if (saveOrder) {
+			return new ResponseEntity<String>("purchase order save", HttpStatus.CREATED);
+		}
+		return new ResponseEntity<String>("purchase order not save", HttpStatus.INTERNAL_SERVER_ERROR);
+
+	}
+
+	@PostMapping("/save")
+	public ResponseEntity<List<PurchaseEntity>> saveAllOrder(@RequestBody List<PurchaseEntity> orders) {
+		List<PurchaseEntity> saveAllOrder = orderService.saveAllOrder(orders);
+		return new ResponseEntity<List<PurchaseEntity>>(saveAllOrder, HttpStatus.CREATED);
+
+	}
+
+	@GetMapping("/{purchaseId}")
+	public ResponseEntity<PurchaseResponse> getByIdPurchaseOrder(@PathVariable Long purchaseId) {
+		Optional<PurchaseEntity> entity = orderService.getById(purchaseId);
+
+		if (entity != null) {
+
+			return new ResponseEntity<PurchaseResponse>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<PurchaseResponse>(HttpStatus.NOT_FOUND);
+		}
+
+	}
+
+	@DeleteMapping("delete/{purchaseId}")
+	public ResponseEntity<String> deleteOrderById(@PathVariable Long purchaseId) {
+		String deleteOrder = orderService.deleteOrderById(purchaseId);
+		return new ResponseEntity<>(deleteOrder, HttpStatus.OK);
+	}
+
+	@PutMapping("/update/{purchaseId}")
+	public ResponseEntity<PurchaseEntity> updateOrderDetails(@RequestBody PurchaseEntity entity,
+			@PathVariable Long purchaseId) {
+		PurchaseEntity updateOrderDetails = orderService.updateOrderDetails(entity, purchaseId);
+		if (updateOrderDetails != null) {
+			return new ResponseEntity<>(updateOrderDetails, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(updateOrderDetails, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
+
+	@GetMapping("/getAll/{userId}/{companyId}")
+	public List<PurchaseEntity> getAllByUserIdCompanyId(@PathVariable Long userId, @PathVariable Long companyId) {
+		return orderService.getAllByUserIdCompanyId(userId, companyId);
+	}
+
+}

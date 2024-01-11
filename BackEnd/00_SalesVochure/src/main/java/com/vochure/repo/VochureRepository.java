@@ -1,0 +1,18 @@
+package com.vochure.repo;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.vochure.entity.VochureEntity;
+
+public interface VochureRepository extends JpaRepository<VochureEntity, Long> {
+
+	public Optional<VochureEntity> findBySaleNo(Long saleNo);
+
+	public boolean existsBySaleNo(Long saleNo);
+
+	public List<VochureEntity> findByUserIdAndCompanyId(Long userId, Long companyId);
+
+}

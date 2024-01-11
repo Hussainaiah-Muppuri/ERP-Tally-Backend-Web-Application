@@ -1,0 +1,49 @@
+/* ViewGroup.css */
+
+.view-group-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-left: 150px;
+}
+
+.view-group-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.view-group-card {
+    margin-top: 20vh;
+    margin-left: 15%;
+    padding: 20px;
+    width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* White background */
+}
+
+.group-title {
+    font-family: 'Roboto', sans-serif;
+    color: #1976D2; /* Material-UI primary color */
+}
+
+.group-info {
+    margin-bottom: 10px;
+    padding-left: 100px;
+}
+
+.view-group-button-container {
+    margin-top: 20px;
+}
+
+.back-button {
+    text-decoration: none;
+    color: #ffffff; /* White text color */
+}
+
+.back-button:hover {
+    text-decoration: none;
+}

@@ -1,0 +1,41 @@
+/* JournalVoucherView.css */
+
+.view-journal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 4vh;
+  }
+  
+  .view-journal-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .view-journal-card {
+    padding: 20px;
+  }
+  
+  .journal-title {
+    margin-bottom: 20px;
+  }
+  
+  .journal-info {
+    margin-bottom: 10px;
+  }
+  
+  .view-journal-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .back-button {
+    text-decoration: none;
+  }
+  
+  /* Add more styles as needed */
+  

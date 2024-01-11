@@ -1,0 +1,57 @@
+package com.erp.serviceImpl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.erp.entity.PurchaseEntity;
+import com.erp.repo.PurchaseRepo;
+import com.erp.service.PurchaseService;
+
+@Service
+public class PurchaseServiceImpl implements PurchaseService {
+
+	@Autowired
+	private PurchaseRepo purchaseRepo;
+
+	@Override
+	public Boolean saveOrder(PurchaseEntity entity) {
+
+		purchaseRepo.save(entity);
+
+		return true;
+	}
+
+	@Override
+	public List<PurchaseEntity> saveAllOrder(List<PurchaseEntity> entities) {
+		return purchaseRepo.saveAll(entities);
+	}
+
+	@Override
+	public Optional<PurchaseEntity> getById(Long purchaseId) {
+		return purchaseRepo.findById(purchaseId);
+	}
+
+	@Override
+	public String deleteOrderById(Long purchaseId) {
+		purchaseRepo.deleteById(purchaseId);
+		return "deleted order";
+	}
+
+	@Override
+	public PurchaseEntity updateOrderDetails(PurchaseEntity orderEntities, Long purchaseId) {
+		PurchaseEntity entity = purchaseRepo.findById(orderEntities.getPurchaseId()).get();
+		BeanUtils.copyProperties(orderEntities, entity);
+		PurchaseEntity save = purchaseRepo.save(entity);
+		return save;
+	}
+
+	@Override
+	public List<PurchaseEntity> getAllByUserIdCompanyId(Long userId, Long companyId) {
+		return purchaseRepo.findByUserIdAndCompanyId(userId, companyId);
+	}
+
+}

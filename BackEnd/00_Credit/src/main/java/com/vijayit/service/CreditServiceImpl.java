@@ -1,0 +1,90 @@
+package com.vijayit.service;
+
+import java.util.List;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.vijayit.entity.CreditEntity;
+import com.vijayit.repo.CreditRepository;
+
+import jakarta.transaction.Transactional;
+
+@Transactional
+@Service
+public class CreditServiceImpl implements CreditService {
+	@Autowired
+	private CreditRepository creditRepo;
+
+	@Override
+	public ResponseEntity<String> saveCredit(CreditEntity credit) {
+		creditRepo.save(credit);
+		return ResponseEntity.ok("saved");
+	}
+
+	@Override
+	public String update(Long creditNo, CreditEntity updatedSalesOrder) {
+		// Find the existing sales order by sales order number
+		Optional<CreditEntity> existingSalesOptional = creditRepo.findByCreditNo(creditNo);
+
+		if (existingSalesOptional.isPresent()) {
+			// Retrieve the existing sales order from the optional
+			CreditEntity existingSales = existingSalesOptional.get();
+
+			// Update the fields of the existing sales order with the values from the
+			// updatedSalesOrder
+			existingSales.setOrderNo(updatedSalesOrder.getOrderNo());
+			existingSales.setDate(updatedSalesOrder.getDate());
+			existingSales.setDay(updatedSalesOrder.getDay());
+			existingSales.setPartyName(updatedSalesOrder.getPartyName());
+			existingSales.setCurrentBalance(updatedSalesOrder.getCurrentBalance());
+			existingSales.setItemName(updatedSalesOrder.getItemName());
+			existingSales.setQuantity(updatedSalesOrder.getQuantity());
+			existingSales.setUnit(updatedSalesOrder.getUnit());
+			existingSales.setRate(updatedSalesOrder.getRate());
+			existingSales.setDiscount(updatedSalesOrder.getDiscount());
+			existingSales.setAmount(updatedSalesOrder.getAmount());
+			existingSales.setTotalAmount(updatedSalesOrder.getTotalAmount());
+			existingSales.setDescription(updatedSalesOrder.getDescription());
+			existingSales.setUserId(updatedSalesOrder.getUserId());
+			existingSales.setCompanyId(updatedSalesOrder.getCompanyId());
+
+			// Save the updated sales order back to the repository
+			creditRepo.save(existingSales);
+
+			return "Sales order updated successfully!";
+		} else {
+			return "Sales order not found!";
+		}
+	}
+
+	@Override
+	public List<CreditEntity> saveAll(List<CreditEntity> credits) {
+		return creditRepo.saveAll(credits);
+	}
+
+	@Override
+	public Optional<CreditEntity> getCreditByCreditNo(Long creditNo) {
+		return creditRepo.findById(creditNo);
+	}
+
+	@Override
+	public String deleteByCreditNo(Long creditNo) {
+		if (creditRepo.existsByCreditNo(creditNo)) {
+			creditRepo.deleteById(creditNo);
+			return "Delete Success";
+		} else {
+			return "No Record Found";
+		}
+
+	}
+
+	@Override
+	public List<CreditEntity> getAllByUserIdAndCompanyId(Long userId, Long companyId) {
+		return creditRepo.findAllByUserIdAndCompanyId(userId, companyId);
+	}
+
+}

@@ -1,0 +1,85 @@
+package com.anarghya.erp.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.anarghya.erp.entity.CompanyForm;
+import com.anarghya.erp.repository.CompanyFormRepository;
+import com.anarghya.erp.service.CompanyFormService;
+
+@Service
+public class CompanyFormServiceImpl implements CompanyFormService {
+
+	@Autowired
+	private CompanyFormRepository companyFormRepository;
+
+	@Override
+	public List<CompanyForm> getAllCompanies() {
+		return companyFormRepository.findAll();
+	}
+
+	@Override
+	public CompanyForm getCompanyById(Long companyId) {
+		Optional<CompanyForm> companyOptional = companyFormRepository.findByCompanyId(companyId);
+		return companyOptional.orElse(null);
+	}
+
+	@Override
+	public String createCompany(CompanyForm companyForm) {
+		try {
+			companyFormRepository.save(companyForm);
+			return "Company created successfully!";
+		} catch (Exception e) {
+			e.printStackTrace(); // Log the exception for debugging purposes
+			return "Error creating company. Please try again.";
+		}
+	}
+
+	@Override
+	public String updateCompany(Long companyId, CompanyForm updatedCompanyForm) {
+		Optional<CompanyForm> existingCompanyOptional = companyFormRepository.findByCompanyId(companyId);
+
+		if (existingCompanyOptional.isPresent()) {
+			CompanyForm existingCompany = existingCompanyOptional.get();
+
+			// Update fields with the new values
+			existingCompany.setCompanyName(updatedCompanyForm.getCompanyName());
+			existingCompany.setCompanyAddress(updatedCompanyForm.getCompanyAddress());
+			// ... update other fields as needed
+
+			// Save the updated entity back to the database
+			companyFormRepository.save(existingCompany);
+
+			return "Company updated successfully!";
+		} else {
+			return "Company not found!";
+		}
+	}
+
+	@Override
+	public String deleteCompany(Long companyId) {
+		if (companyFormRepository.existsById(companyId)) {
+			companyFormRepository.deleteById(companyId);
+			return "Company deleted successfully!";
+		} else {
+			return "Company not found!";
+		}
+	}
+
+	public List<CompanyForm> getAllCompaniesByUserId(Integer userId) {
+		return companyFormRepository.findByUserId(userId);
+	}
+
+	public boolean validateCompanyPassword(Long companyId, String password) {
+		CompanyForm company = companyFormRepository.findById(companyId)
+				.orElseThrow(() -> new RuntimeException("Company not found"));
+
+		// Compare the provided password with the stored password (you might want to use
+		// a password hashing library)
+		return password.equals(company.getPassword());
+	}
+
+}

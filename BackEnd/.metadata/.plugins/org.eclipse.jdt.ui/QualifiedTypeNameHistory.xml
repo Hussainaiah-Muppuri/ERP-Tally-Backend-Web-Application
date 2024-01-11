@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="jakarta.persistence.UniqueConstraint"/>
+    <fullyQualifiedTypeName name="com.erp.binding.LoginForm"/>
+    <fullyQualifiedTypeName name="com.erp.entity.LoginResponse"/>
+    <fullyQualifiedTypeName name="com.erp.entity.SignUpEntity"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonInclude"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.JoinColumn"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
+    <fullyQualifiedTypeName name="com.anarghya.erp.entity.UserCreation"/>
+    <fullyQualifiedTypeName name="jakarta.validation.constraints.AssertFalse.List"/>
+    <fullyQualifiedTypeName name="com.erp.entity.CompanyCreationEntity"/>
+    <fullyQualifiedTypeName name="com.erp.entity.ApiResponse"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
+    <fullyQualifiedTypeName name="com.anarghya.erp.entity.CompanyPasswordRequest"/>
+    <fullyQualifiedTypeName name="com.anarghya.erp.entity.ValidationResponse"/>
+    <fullyQualifiedTypeName name="com.anarghya.erp.entity.ErrorResponse"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
+    <fullyQualifiedTypeName name="com.anarghya.erp.entity.UnitEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="com.ledger.entity.LedgerEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,80 @@
+/* GroupsList.css */
+.list-group-table .groups-list {
+  margin-top: 20px;
+  text-align: center;
+  margin-left: 70px;
+  margin-right: 70px;
+
+}
+
+.list-group-table .table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.list-group-table .table th,
+.list-group-table .table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.list-group-table .table th {
+  background-color: #007bff; /* Bootstrap primary color for table headers */
+  color: #fff;
+}
+
+.list-group-table .table tbody tr:hover {
+  background-color: #f8f9fa; /* Bootstrap table hover background color */
+}
+
+.list-group-table .action-buttons {
+  background-color: #f8f9fa; /* Bootstrap table background color */
+  
+}
+
+.list-group-table .group-view,
+.list-group-table .btn-warning,
+.list-group-table .btn-danger {
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+.list-group-table .group-view {
+  background-color: #28a745; /* Bootstrap success color */
+  border: none;
+}
+
+.list-group-table .btn-warning {
+  background-color:lightslategray; /* Bootstrap warning color */
+  border: none;
+}
+
+.list-group-table .btn-danger {
+  background-color:rgb(255,0,0); /* Bootstrap danger color */
+  border: none;
+}
+
+.list-group-table .form-rows {
+  display: flex;
+  gap: 8px; /* Adjust the gap between buttons */
+  align-items: center;
+}
+
+/* Adjust button sizes for "View," "Update," and "Delete" */
+.list-group-table .group-view,
+.list-group-table .btn-warning,
+.list-group-table .btn-danger {
+  font-size: 14px;
+  padding: 8px 12px; 
+}
+
+@media (max-width: 768px) {
+  .list-group-table .table th,
+  .list-group-table .table td {
+    font-size: 14px;
+  }
+}

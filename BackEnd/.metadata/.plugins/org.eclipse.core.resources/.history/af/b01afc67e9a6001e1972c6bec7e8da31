@@ -1,0 +1,40 @@
+server:
+  port: 9090
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/tally
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: muppuri47@gmail.com
+    password: yhld ylmm ccgw nwph
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true  
+    
+
+
+#spring.mail.host=smtp.gmail.com
+#spring.mail.port=587
+#spring.mail.username=pramodgoskula@gmail.com
+#spring.mail.password=vaku kwhc mjsn ljzt
+#spring.mail.properties.mail.smtp.starttls.enable=true
+#spring.mail.properties.mail.smtp.starttls.required=true
+#spring.mail.properties.mail.smtp.auth=true
+#spring.mail.properties.mail.smtp.ssl.trust=smtp.gmail.com
+#
+    

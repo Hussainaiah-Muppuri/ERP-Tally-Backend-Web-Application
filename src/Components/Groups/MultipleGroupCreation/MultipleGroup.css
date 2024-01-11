@@ -1,0 +1,94 @@
+/* Style the table */
+.Table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: red; /* Set your desired background color */
+}
+
+/* Style table headers */
+.Table th {
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 3px solid #2980b9; /* Add a 3px solid line below the th with the desired color */
+}
+
+/* Style table rows */
+.Table tbody tr {
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+/* Style even rows with stripe color */
+.Table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Set your desired stripe color */
+}
+
+/* Style table cells */
+.Table td {
+  padding: 15px;
+  border: 1px solid #000; /* Add a 1px solid black border to all sides of the td */
+}
+
+/* Remove right border from the last cell in each row */
+.Table tr td:last-child {
+  border-right: none;
+}
+
+/* Style form controls */
+.Form.Control {
+  width: 0;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 4px;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.Form.Control.active {
+  width: 100%;
+  opacity: 1;
+  border: 1px solid #3498db;
+}
+
+/* Style select dropdown */
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: #ffffff;
+  transition: border-color 0.3s ease;
+}
+
+select:hover,
+select:focus {
+  border-color: #3498db;
+}
+
+/* Style submit button */
+.Button {
+  background-color: #28a745;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Button:hover {
+  background-color: #218838;
+}
+
+/* ToastContainer styles */
+.ToastContainer {
+  margin-top: 1rem;
+  font-size: 14px;
+}

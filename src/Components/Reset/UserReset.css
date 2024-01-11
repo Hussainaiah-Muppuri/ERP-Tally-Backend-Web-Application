@@ -1,0 +1,62 @@
+.user-email-h h3 {
+  text-align: center;
+}
+
+.user-email-val {
+  width: 60%;
+  margin-left: 20%;
+}
+
+.user-email-val label {
+  font-weight: bolder;
+  margin-bottom: 2vh;
+}
+
+.user-email-val input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgb(54, 54, 119);
+  padding: 3px;
+  height: 5vh;
+  margin-bottom: 3vh;
+}
+
+.user-email-val button {
+  width: 20%;
+  margin-left: 40%;
+}
+
+.error {
+  margin-top: 20px;
+  color: #dc3545;
+  text-align: center;
+}
+
+.success {
+  margin-top: 20px;
+  color: #28a745;
+  text-align: center;
+  font-size: 16px;
+}
+
+.form-new-password label {
+  font-weight: bolder;
+}
+
+.otp-confirm-user {
+  width: 100%;
+
+}
+
+.password-input-container1 {
+  display: flex;
+}
+
+.Reset-user-submit {
+  width: 50%;
+  margin-left: 35%;
+}
+
+.password-toggle-icon {
+  margin-top: 1vh;
+}

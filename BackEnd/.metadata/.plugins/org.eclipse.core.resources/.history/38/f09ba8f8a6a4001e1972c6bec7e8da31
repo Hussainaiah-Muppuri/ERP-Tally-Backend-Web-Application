@@ -1,0 +1,23 @@
+package com.stock.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+@Data
+@Entity
+@Table(name="STOCK")
+public class StockGroupEntity {
+
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long stockGroupId;
+    private String stockGroupName;
+    
+    private Long userId;
+   	private Long companyId;
+	
+}

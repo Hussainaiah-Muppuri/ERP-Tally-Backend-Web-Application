@@ -1,0 +1,52 @@
+/* PaymentList.css */
+
+.payment-list {
+    margin-top: 20px;
+  }
+  
+  .payment-list h4 {
+    text-align: center;
+  }
+  
+  .payment-add-button {
+    margin-left: 60%;
+    margin-bottom: 1%;
+  }
+  
+  .table-sm th,
+  .table-sm td {
+    font-size: 14px;
+  }
+  
+  .action-buttons th,
+  .action-buttons td {
+    text-align: center;
+  }
+  
+  .action-buttons .form-rows button {
+    margin-right: 5px;
+  }
+  
+  .payment-view
+  {
+    
+    padding: 8px 15px;
+    font-weight: bold;
+  }
+  
+  .payment-view {
+    background-color:navy;
+  }
+  
+  .payment-update {
+    background-color: #f0ad4e;
+    border-color: #eea236;
+  }
+  
+  .payment-delete {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+  }
+  
+  /* Add more styles as needed */
+  
